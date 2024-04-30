@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post" novalidate style="padding:50px">
+    <h1>Вход</h1>
+    {{ form.hidden_tag() }}
+
+       {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username(class_="form-control") }}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(class_="form-control") }}
+    </p>
+    <!--<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>-->
+       {{ form.submit(class_="btn-primary") }}
+
+
+</form>
+{% endblock %}

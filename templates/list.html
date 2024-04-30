@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        {% for header in headers %}
+            <th scope="col">{{ header }}</th>
+        {% endfor %}
+    </tr>
+    <tbody>
+    {% for book in books %}
+    <tr>
+        <td>{{ book[1] }}</td>
+        <td>{{ book[2] }}</td>
+        <td><a href="{{ book[3] }}">Читать</a></td>
+
+        {% if isAdmin %}
+        <td>
+            <form action="{{ url_for('delete', id=book[0],isAdmin=isAdmin,name=name) }}" method=post>
+                <input type="submit" class="btn btn-danger" value="Удалить">
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
